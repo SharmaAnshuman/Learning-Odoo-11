@@ -1,0 +1,40 @@
+<odoo>
+	
+	
+	<record id="main_menu_form_view" model="ir.ui.view">
+		<field name="name">Form View</field>
+		<field name="model">z.app</field>
+		<field name="arch" type="xml">
+			<form string="Main Menu Form View">
+				<group>
+					<field name="id"/>
+					<field name="name"/>
+					<field name="short_name"/>
+					<field name="lenght"/>
+					<field name="note"/>
+					<field name="issue"/>
+					<field name="date"/>
+					<field name="state" widget="radio"/>
+					<field name="cover" widget="image" height="64"/>
+				</group>
+			</form>
+		</field>
+	</record>
+	
+	<record id="main_menu_action" model="ir.actions.act_window">
+		<field name="name">Main Menu</field>
+		<field name="res_model">z.app</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,graph,kanban</field>
+	</record>
+	
+	<menuitem id="parent_main_menu"
+			name="ZApp"/>
+
+	<menuitem id="main_menu"
+			name="ZApp Note"
+			parent="parent_main_menu"
+			action="main_menu_action"/>			
+			
+	
+</odoo>
