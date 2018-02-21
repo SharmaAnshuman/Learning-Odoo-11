@@ -1,0 +1,86 @@
+<odoo>
+
+	<record id="search_all_product" model="ir.ui.view">
+		<field name="model">demo.product</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="p_desc"/>
+				<field name="name"/>
+			</search>
+		</field>
+	</record>
+	
+	<record id="sub_menu_product_form_view" model="ir.ui.view">
+		<field name="name">Form View</field>
+		<field name="model">demo.product</field>
+		<field name="arch" type="xml">
+			<form>
+				<group>
+					<field name="name"/>
+					<field name="p_desc"/>
+					<field name="p_amount"/>
+					<field name="p_img" widget="image" width="120px"/>
+					<field name="c_name" widget="selection"/>
+				</group>
+			</form>
+		</field>
+	</record>
+
+	<record id="sub_menu_product_tree_view" model="ir.ui.view">
+		<field name="name">Tree View</field>
+		<field name="model">demo.product</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name="name"/>
+				<field name="p_desc"/>
+				<field name="p_amount"/>
+				<field name="p_img" widget="image" width="85px"/>
+				<field name="c_name" widget="selection"/>
+			</tree>
+		</field>
+	</record>
+
+	<record id="sub_menu_order_action" model="ir.actions.act_window">
+		<field name="name">Order</field>
+		<field name="res_model">demo.order</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	<record id="sub_menu_category_action" model="ir.actions.act_window">
+		<field name="name">Category</field>
+		<field name="res_model">demo.category</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	<record id="sub_menu_product_action" model="ir.actions.act_window">
+		<field name="name">Product</field>
+		<field name="res_model">demo.product</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	<menuitem
+			id="main"
+			name="Relations"/>
+
+	<menuitem
+			id="sub_menu_category"
+			name="Category"
+			parent="main"
+			action="sub_menu_category_action"/>
+
+	<menuitem
+			id="sub_menu_product"
+			name="Product"
+			parent="main"
+			action="sub_menu_product_action"/>
+
+	<menuitem
+			id="sub_menu_order"
+			name="Order"
+			parent="main"
+			action="sub_menu_order_action"/>
+
+</odoo>
