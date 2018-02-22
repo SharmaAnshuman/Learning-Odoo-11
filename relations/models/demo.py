@@ -39,6 +39,6 @@ class Order(models.Model):
     o_pro = fields.Many2many("demo.product",string="Product")
 
     @api.onchange('name')
-    print("------------------onchange------------------------------------------")
     def _onchange_name(self):
+        print("------------------onchange------------------------------------------")
         self.name = str(self.name) + "- Edited"
