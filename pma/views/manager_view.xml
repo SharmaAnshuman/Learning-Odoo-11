@@ -1,0 +1,77 @@
+<odoo>
+
+	<record id="manager_project_menu_action_form_view" model="ir.ui.view">
+		<field name="name">Project</field>
+		<field name="model">pma.projects</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name"/>
+						<field name="start_date"/>
+						<!-- <field name="hourly_rate"/> -->
+						<!-- <field name="budget"/> -->
+						<field name="active_state"/>
+						<!-- <field name="total_hours"/> -->
+						<!-- <field name="labor_cost"/> -->
+						<!-- <field name="material_cost"/>
+						<field name="total_cost"/> -->
+						<!-- <field name="manager_id" widget="selection"/> -->
+						<field name="status"/>
+						<field name="client"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="manager_contacts_menu_action" model="ir.actions.act_window">
+		<field name="name">Contacts</field>
+		<field name="res_model">pma.contacts</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>	
+
+	<record id="manager_tasks_menu_action" model="ir.actions.act_window">
+		<field name="name">Tasks</field>
+		<field name="res_model">pma.tasks</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	<record id="manager_project_menu_action" model="ir.actions.act_window">
+		<field name="name">Project</field>
+		<field name="res_model">pma.projects</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+		<field name="view_id" ref="manager_project_menu_action_form_view"/>
+	</record>
+
+	<menuitem 
+		id="manager_menu"
+		name="Manager"
+		parent="parent_menu"
+		groups="group_manager"/>
+
+	<menuitem
+		id="manager_project_menu"
+		name="Project"
+		parent="manager_menu"
+		action="manager_project_menu_action"
+		groups="group_manager"/>
+
+	<menuitem
+		id="manager_contacts_menu"
+		name="Contacts"
+		parent="manager_menu"
+		action="manager_contacts_menu_action"
+		groups="group_manager"/>
+
+	<menuitem 
+		id="manager_tasks_menu"
+		name="Task"
+		parent="manager_menu"
+		action="manager_tasks_menu_action"
+		groups="group_manager"/>
+
+</odoo>

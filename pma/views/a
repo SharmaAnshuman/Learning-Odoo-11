@@ -1,0 +1,148 @@
+<odoo>
+
+	<record id="project_menu_form_view" model="ir.ui.view">
+		<field name="name">project menu form View</field>
+		<field name="model">pma.projects</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name"/>
+						<field name="start_date"/>
+						<field name="hourly_rate"/>
+						<field name="budget"/>
+						<field name="active_state"/>
+						<field name="total_hours"/>
+						<field name="labor_cost"/>
+						<field name="material_cost"/>
+						<field name="total_cost"/>
+						<!-- <field name="manager_id" widget="selection"/> -->
+						<field name="status"/>
+						<field name="client"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+
+	<record id="project_menu_form_view" model="ir.ui.view">
+		<field name="name">project menu form View</field>
+		<field name="model">pma.projects</field>
+		<field name="arch" type="xml">
+			<form>
+				<sheet>
+					<group>
+						<field name="name"/>
+						<field name="start_date"/>
+						<field name="hourly_rate"/>
+						<field name="budget"/>
+						<field name="active_state"/>
+						<field name="total_hours"/>
+						<field name="labor_cost"/>
+						<field name="material_cost"/>
+						<field name="total_cost"/>
+						<!-- <field name="manager_id" widget="selection"/> -->
+						<field name="status"/>
+						<field name="client"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="milestone_menu_action" model="ir.actions.act_window">
+		<field name="name">Milestone</field>
+		<field name="res_model">pma.milestones</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	<record id="task_menu_action" model="ir.actions.act_window">
+		<field name="name">Tasks</field>
+		<field name="res_model">pma.tasks</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	<record id="admin_menu_project_action" model="ir.actions.act_window">
+		<field name="name">Projects</field>
+		<field name="res_model">pma.projects</field>
+		<field name="view_type">form</field>
+		<field name="act_window_id" ref="project_menu_form_view"/>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	<record id="project_menu_action" model="ir.actions.act_window">
+		<field name="name">Project View</field>
+		<field name="res_model">pma.projects</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	
+	<record id="contacts_menu_action" model="ir.actions.act_window">
+		<field name="name">Contacts</field>
+		<field name="res_model">pma.contacts</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	<record id="clients_menu_action" model="ir.actions.act_window">
+		<field name="name">Clients</field>
+		<field name="res_model">pma.clients</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form,kanban</field>
+	</record>
+
+	<menuitem 
+		id="parent_menu"
+		name="Project Management"/>
+
+	<menuitem 
+		id="admin_menu"
+		name="Admin"
+		parent="parent_menu"/>
+
+	<menuitem
+		id="admin_menu_project"
+		name="Project"
+		parent="admin_menu"
+		action="admin_menu_project_action"/>
+
+	<menuitem 
+		id="project_manager_menu"
+		name="Project Manager"
+		parent="parent_menu"/>
+
+	<menuitem 
+		id="clients_menu"
+		name="Clients"
+		parent="project_manager_menu"
+		action="clients_menu_action"/>
+
+	<menuitem 
+		id="contacts_menu"
+		name="Contacts"
+		parent="project_manager_menu"
+		action="contacts_menu_action"/>
+
+	<menuitem 
+		id="project_menu"
+		name="Project"
+		parent="project_manager_menu"
+		action="project_menu_action"/>
+
+	<menuitem
+		id="task_menu"
+		name="Tasks"
+		parent="project_manager_menu"
+		action="task_menu_action"/>
+
+	<menuitem
+		id="milestone_menu"
+		name="Milestone"
+		parent="project_manager_menu"
+		action="milestone_menu_action"/>		 
+
+</odoo>

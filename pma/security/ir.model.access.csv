@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+admin_proj,Admin Project Access,model_pma_projects,pma.group_admin,1,1,1,1
+manager_proj,Manager Access,model_pma_projects,pma.group_manager,1,1,0,0
+manager_cont,Manager Access,model_pma_contacts,pma.group_manager,1,0,0,0
+manager_task,Manager Access,model_pma_tasks,pma.group_manager,1,1,1,1
+employee,Employee Access,model_pma_tasks,pma.group_employee,1,0,0,0
