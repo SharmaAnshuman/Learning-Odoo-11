@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<record id="sub_menu_user1_action" model="ir.actions.act_window">
+		<field name="name">User1 Menu</field>
+		<field name="res_model">authsystem</field>
+		<field name="view_type">tree</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="sub_menu_user2_action" model="ir.actions.act_window">
+		<field name="name">User2 Menu</field>
+		<field name="res_model">authsystem</field>
+		<field name="view_type">tree</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem
+		id="top_menu"
+		name="Auth System"/>
+
+	<menuitem
+		id="sub_menu_user1"
+		parent="top_menu"
+		name="User1 Menu"
+		action="sub_menu_user1_action"
+		groups="group1"
+		/>
+
+	<menuitem 
+		id="sub_menu_user2"
+		parent="top_menu"
+		name="User2 Menu"
+		action="sub_menu_user2_action"
+		groups="group2"
+		/>
+
+</odoo>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <record model="ir.module.category" id="module_management">
+      <field name="name">Auth System Access</field>
+      <field name="description">Auth system desc</field>
+      <field name="sequence">3</field>
+    </record>
+
+   <record id="group1" model="res.groups">
+     <field name="name">User1</field>
+     <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+     <field name="users" eval="[(4, ref('base.user_root'))]"/>
+     <field name="category_id" ref="authsystem.module_management"/>
+    </record>
+
+    <record id="group2" model="res.groups">
+      <field name="name">User2</field>
+      <field name="category_id" ref="authsystem.module_management"/>
+    </record>
+  </data>
+</odoo>
